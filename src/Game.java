@@ -8,9 +8,6 @@ public class Game {
     static Apple apple;
     static int delay = 300;
 
-    static void play() {
-
-    }
 
     public static void delay() {
         try {
