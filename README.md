@@ -1,1 +1,1 @@
-# Snake
+# Just Snake on Java
