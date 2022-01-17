@@ -21,12 +21,12 @@ public class Game {
         if ((apple.coordinates[0]==head.coordinates[0]) && (apple.coordinates[1]==head.coordinates[1])){
             addSegment();
             if (delay>100){
-                delay-=10;
+                delay-=10; //increasing the speed of the snake after eating apple
             }
         }
         for (Segment s: body){
             if ((s.coordinates[0]==head.coordinates[0]) && (s.coordinates[1]==head.coordinates[1])){
-                body = new ArrayList<>(); // если съели себя, создаем новое тело - начинаем игру сначала
+                body = new ArrayList<>(); //after eating himself body
                 addSegment();
                 delay = 300;
                 JOptionPane.showMessageDialog(Snake.frame, "Поражение! Для начала новой игры, нажмите Ok!");
