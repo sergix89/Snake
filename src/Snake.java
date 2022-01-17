@@ -6,8 +6,7 @@ public class Snake implements KeyListener {
     static JFrame frame = new JFrame("Snake");
     static GameField gameField = new GameField();
     static Snake snake = new Snake();
-    Runnable gamePlay = new GamePlay();
-    Thread gamePlayThread = new Thread(gamePlay);
+    Thread gamePlayThread = new Thread(new gamePlaynig());
 
     public static void main(String[] args) {
         snake.start();
@@ -61,6 +60,24 @@ public class Snake implements KeyListener {
                 }
                 break;
             default:
+        }
+    }
+
+    private class gamePlaynig implements Runnable {
+        @Override
+        public void run() {
+            while (true) {
+                switch (Game.head.moves) {
+                    case "left" -> Game.left();
+                    case "right" -> Game.right();
+                    case "down" -> Game.down();
+                    case "up" -> Game.up();
+                    default -> {
+                    }
+                }
+                Snake.gameField.repaint();
+                Game.delay();
+            }
         }
     }
 }
